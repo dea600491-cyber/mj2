@@ -1037,6 +1037,11 @@
       <button id="mobile-send-order" onclick="showOrderForm()" style="background:linear-gradient(135deg, #25d366 0%, #128c7e 100%);color:#fff;font-size:1.2em;font-weight:bold;padding:20px;border-radius:20px;border:none;cursor:pointer;width:100%;box-shadow:0 10px 30px rgba(37,211,102,0.5);transition:all 0.3s ease;font-family:'Cairo', Tahoma, Arial, sans-serif;display:none;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 40px rgba(37,211,102,0.7)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(37,211,102,0.5)'">
         📱 إرسال الطلب
       </button>
+      
+      <!-- زر العودة للقائمة - موجود دائماً -->
+      <button onclick="closeMobileCartPage()" style="background:rgba(255,255,255,0.25);color:#fff;border:2px solid rgba(255,255,255,0.4);padding:15px 30px;border-radius:20px;font-size:1.1em;cursor:pointer;transition:all 0.3s ease;box-shadow:0 6px 20px rgba(0,0,0,0.2);width:100%;margin-top:15px;">
+        ← العودة للقائمة
+      </button>
     </div>
   </div>
 
@@ -1583,16 +1588,8 @@
             console.log('🔄 استدعاء updateCart...');
             updateCart();
             
-            // رسالة تأكيد للمستخدم
+            // رسالة تأكيد منظمة وجميلة
             showAddConfirmation(cleanDish);
-            
-            console.log('🎉 تم الانتهاء من إضافة الطبق بنجاح');
-            
-            // إظهار رسالة تأكيد إضافية
-            showCartNotification(`تم إضافة ${cleanDish} بنجاح!`, 'success');
-            
-            // إظهار رسالة واضحة للمستخدم
-            alert(`تم إضافة ${cleanDish} إلى السلة بنجاح! 🎉\n\nيمكنك رؤية السلة في الأعلى أو الضغط على زر السلة الأحمر.`);
             
             // تأثير بصري على الزر
             if (event && event.target) {
@@ -1637,9 +1634,8 @@
           `;
           
           confirmation.innerHTML = `
-            <div style="font-size: 2.5em; margin-bottom: 15px;animation:bounce 2s infinite;">✅</div>
-            <div style="margin-bottom: 10px; font-size: 1.1em;">تم إضافة:</div>
-            <div style="font-size: 1.3em; margin-bottom: 15px; background: rgba(255,255,255,0.2); padding: 10px 15px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.3);box-shadow:0 4px 15px rgba(255,255,255,0.2);">${dishName}</div>
+            <div style="font-size: 2em; margin-bottom: 15px;animation:bounce 2s infinite;">✅</div>
+            <div style="font-size: 1.3em; margin-bottom: 15px;">تم إضافة طبق (${dishName})</div>
             <small style="opacity: 0.8; font-size: 0.9em;">اضغط في أي مكان لإغلاق</small>
           `;
           
